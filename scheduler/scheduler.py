@@ -479,7 +479,6 @@ class Scheduler(commands.Cog):
     @commands.guild_only()
     @commands.command()
     @can_run_command("mute server")
-    @tempmute.command(usage="<user> [reason] [args]")
     async def tempmute(self, ctx, user: discord.Member, *, mute: TempMute):
         """
         binding for mute + scheduled unmute 
