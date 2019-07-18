@@ -1,0 +1,21 @@
+{
+    "author": [
+        "mikeshardmind(Sinbad)",
+        "DiscordLiz",
+	"pixelperfect#0001"
+    ],
+    "install_msg": "This cog is specifically modified to add a hardcoded role to a user when using tempmute. I would NOT reccomend using it.",
+    "name": "Scheduler",
+    "disabled": false,
+    "short": "A timezone aware scheduler cog",
+    "description": "A timezone aware scheduler cog",
+    "tags": [
+        "scheduler"
+    ],
+    "hidden": false,
+    "requirements": [
+        "python-dateutil",
+        "pytz"
+    ],
+    "min_bot_version": "3.1.1"
+}
