@@ -477,7 +477,7 @@ class Scheduler(commands.Cog):
         await ctx.tick()
 
     @commands.guild_only()
-    @commands.command()
+    @commands.command(aliases=["tm"])
     @can_run_command("mute server")
     async def tempmute(self, ctx, user: discord.Member, *, mute: TempMute):
         """
