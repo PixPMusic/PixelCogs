@@ -1,0 +1,19 @@
+{
+    "author": [
+	    "PixelPerfect#0001"
+    ],
+    "install_msg": "Hey, thanks for using my cog! You can reach me at PixelPerfect#0001",
+    "name": "VideoVC",
+    "disabled": false,
+    "short": "Make Video NOW",
+    "description": "This cog automatically generates a video call link for the current voice channel you are in.",
+    "tags": [
+        "voice"
+    ],
+    "hidden": false,
+    "requirements": [
+        "python-dateutil",
+        "pytz"
+    ],
+    "min_bot_version": "3.1.1"
+}
