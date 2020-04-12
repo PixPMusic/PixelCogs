@@ -9,9 +9,7 @@ class VoiceVC(commands.Cog):
     async def vc(self, ctx):
         """Generate a video chat url"""
         try:
-            await ctx.send(ctx.guild.id)
-            await ctx.send(ctx.author.voice.channel.id)
-            await ctx.send("Here's your link: https:////discordapp.com\/channels//" + ctx.guild.id + "//" + ctx.author.voice.channel.id)
+            await ctx.send("Here's your link: " + ctx.guild.id + " " + ctx.author.voice.channel.id)
         except AttributeError:
             return await self._embed_msg(
                 ctx,
