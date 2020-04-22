@@ -79,3 +79,43 @@ class QuoteTools(commands.Cog):
                     await ctx.send(msg1)
                     await ctx.send(m.clean_content)
                 await ctx.message.delete()
+
+    @commands.command()
+    async def quotein(
+        self, ctx, channel: discord.TextChannel, channels: commands.Greedy[GlobalChannel] = None, *messageids: int
+    ):
+        """
+        gets (a) message(s) by ID(s)
+
+        User must be able to see the message(s)
+
+        You need to specify specific channels to search (by ID or mention only!)
+        (Owner is exempt from this, but it may be slow and API heavy)
+        """
+
+        if not messageids or (not channels and not await ctx.bot.is_owner(ctx.author)):
+            return await ctx.send_help()
+
+        msgs = await find_messages(ctx, messageids, channels)
+        if not msgs:
+            return await ctx.maybe_send_embed("No matching message found.")
+
+        for m in msgs:
+            if await ctx.embed_requested():
+                em = embed_from_msg(m)
+                await channel.send(embed=em)
+                await ctx.message.delete()
+            else:
+                msg1 = "\n".join(
+                    [
+                        "Author: {0}({0.id})".format(m.author),
+                        "Channel: {}".format(m.channel.mention),
+                        "Time(UTC): {}".format(m.created_at.isoformat()),
+                    ]
+                )
+                if len(msg1) + len(m.clean_content) < 2000:
+                    await ctx.send(msg1 + m.clean_content)
+                else:
+                    await ctx.send(msg1)
+                    await ctx.send(m.clean_content)
+                await ctx.message.delete()
