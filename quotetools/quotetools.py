@@ -104,7 +104,6 @@ class QuoteTools(commands.Cog):
             if await ctx.embed_requested():
                 em = embed_from_msg(m)
                 await channel.send(embed=em)
-                await ctx.message.delete()
             else:
                 msg1 = "\n".join(
                     [
