@@ -117,4 +117,3 @@ class QuoteTools(commands.Cog):
                 else:
                     await ctx.send(msg1)
                     await ctx.send(m.clean_content)
-                await ctx.message.delete()
